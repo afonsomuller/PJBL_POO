@@ -8,4 +8,13 @@ public class Vendedor extends Funcionario {
     public double comissao() {
         return getSalario() + (this.valorVendido * 0.005);
     }
+    public double getValorVendido() {
+        return valorVendido;
+    }
+    public void setValorVendido(double valorVendido) {
+        this.valorVendido = valorVendido;
+    }
+    public void acumularValorVendido(double valorVendido){
+        this.valorVendido += valorVendido;
+    }
 }
