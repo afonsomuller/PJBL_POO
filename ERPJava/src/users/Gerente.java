@@ -1,3 +1,5 @@
+package users;
+
 public class Gerente extends Funcionario {
 
     public Gerente(String nomeDoFuncionario, double salario){

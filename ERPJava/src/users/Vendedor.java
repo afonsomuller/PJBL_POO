@@ -1,3 +1,5 @@
+package users;
+
 public class Vendedor extends Funcionario {
     private double valorVendido;
     public Vendedor(String nomeDoFuncionario, double salario, double valorVendido){

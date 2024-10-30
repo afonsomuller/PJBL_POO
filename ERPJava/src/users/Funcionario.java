@@ -1,3 +1,5 @@
+package users;
+
 public abstract class Funcionario {
     private String nomeDoFuncionario;
     private double salario;
