@@ -2,8 +2,8 @@ package users;
 
 public class Tecnico extends Funcionario {
     private double valorVendido;
-    public Tecnico(String nomeDoFuncionario, double salario, double valorVendido){
-        super(nomeDoFuncionario, salario);
+    public Tecnico(String nomeDoFuncionario, double salario, double valorVendido, int nivelDePermissao){
+        super(nomeDoFuncionario, salario, nivelDePermissao);
         this.valorVendido = valorVendido;
     }
 
