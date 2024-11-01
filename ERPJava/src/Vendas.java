@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Vendas {
-    private int IDVenda = 0;
+    private static int IDVenda = 0;
     private double valorVenda;
     private String descricao;
 
