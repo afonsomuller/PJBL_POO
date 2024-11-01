@@ -1,3 +1,8 @@
+import users.Funcionario;
+import users.Vendedor;
+
+import java.util.ArrayList;
+
 public class Empresa {
     private String nomeDaEmpresa;
     private String CNPJ;
@@ -6,6 +11,7 @@ public class Empresa {
         this.nomeDaEmpresa = nomeDaEmpresa;
         this.CNPJ = CNPJ;
     }
+    private ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
     public String getNomeDaEmpresa() {
         return nomeDaEmpresa;
@@ -15,12 +21,12 @@ public class Empresa {
         return CNPJ;
     }
 
-    public void setNomeDaEmpresa(String nomeDaEmpresa) {
-        this.nomeDaEmpresa = nomeDaEmpresa;
-    }
 
-    public void setCNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+    public void addFuncionario(Funcionario f){
+        funcionarios.add(f);
+    }
+    public ArrayList<Funcionario> getFuncionarios() {
+        return funcionarios;
     }
 }
 
