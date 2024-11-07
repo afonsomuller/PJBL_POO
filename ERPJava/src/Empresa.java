@@ -12,6 +12,9 @@ public class Empresa {
         this.CNPJ = CNPJ;
     }
     private ArrayList<Funcionario> funcionarios = new ArrayList<>();
+    private ArrayList<Empresa>empresas  = new ArrayList<>();
+
+
 
     public String getNomeDaEmpresa() {
         return nomeDaEmpresa;
@@ -20,6 +23,7 @@ public class Empresa {
     public String getCNPJ() {
         return CNPJ;
     }
+
 
 
     public void addFuncionario(Funcionario f){

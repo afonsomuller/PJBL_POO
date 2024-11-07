@@ -10,14 +10,26 @@ public class Vendas {
         this.valorVenda = valorVenda;
         this.descricao = descricao;
     }
-    public String toString() {
-        return "A venda " + IDVenda + " ficou no valor " + valorVenda;
-    }
+
+    private ArrayList<Vendas> vendas = new ArrayList<>();
+
+
+//    public String toString() {
+//        return "A venda " + IDVenda + " ficou no valor " + valorVenda;
+//    }
     public String getDescricao() {
         return descricao;
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    ArrayList<Vendas> vendas = new ArrayList<Vendas>();
+    public void addVenda(Vendas venda) {
+        vendas.add(venda);
+    }
+
+    public ArrayList<Vendas> getVendas() {
+
+        return vendas;
+    }
 }
+

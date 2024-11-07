@@ -9,7 +9,6 @@ public class Vendedor extends Funcionario {
         this.valorVendido = valorVendido;
 
     }
-
     @Override
     public double comissao() {
         if(getNivelDePermissao() == 4) {
@@ -27,7 +26,7 @@ public class Vendedor extends Funcionario {
     public void setValorVendido(double valorVendido) {
         this.valorVendido = valorVendido;
     }
-    public void acumularValorVendido(double valorVendido){
+    public void acumularValorVendido(double valorVendido) {
         this.valorVendido += valorVendido;
     }
 
