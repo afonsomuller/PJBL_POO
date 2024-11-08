@@ -4,7 +4,7 @@ import com.sun.source.tree.LabeledStatementTree;
 
 import java.io.Serializable;
 
-public abstract class Funcionario implements Serializable {
+public abstract class Funcionario{
     private String nomeDoFuncionario;
     private double salario;
     private int nivelDePermissao;

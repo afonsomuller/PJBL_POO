@@ -14,7 +14,10 @@ public class Empresa {
     private ArrayList<Funcionario> funcionarios = new ArrayList<>();
     private ArrayList<Empresa>empresas  = new ArrayList<>();
 
-
+    @Override
+    public String toString() {
+        return "Empresa: " + nomeDaEmpresa + " CNPJ: " + CNPJ;
+    }
 
     public String getNomeDaEmpresa() {
         return nomeDaEmpresa;

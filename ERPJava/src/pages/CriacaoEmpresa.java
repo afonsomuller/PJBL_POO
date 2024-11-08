@@ -1,10 +1,12 @@
 package pages;
 
 import utilities.CampoEmBranco;
+import utilities.FileManager;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class CriacaoEmpresa extends JFrame {
@@ -38,8 +40,13 @@ public class CriacaoEmpresa extends JFrame {
                                 "Aviso", JOptionPane.WARNING_MESSAGE);
                         throw new CampoEmBranco("Opa! Algum campo está vazio! Tente novamente");
                     } else {
-                        JOptionPane.showConfirmDialog(CriacaoEmpresa.this, "Empresa: " + nomeEmpresa
-                                + "\nCNPJ: " + CNPJEmpresa + "\nDeseja Confirmar dados?");
+                        int resposta = JOptionPane.showConfirmDialog(CriacaoEmpresa.this, "Empresa: " + nomeEmpresa
+                                + "\nCNPJ: " + CNPJEmpresa + "\nDeseja Confirmar dados?", "Confirmar", JOptionPane.OK_CANCEL_OPTION);
+                        if(resposta == 0){
+                            FileManager fm = new FileManager("./ERPJava/database/Empresa.txt");
+                            fm.escreverArquivoEmpresa(nomeEmpresa, CNPJEmpresa);
+                            dispose();
+                        }
                     }
                 } catch (CampoEmBranco ex) {
                     System.out.println(ex.getMessage());
