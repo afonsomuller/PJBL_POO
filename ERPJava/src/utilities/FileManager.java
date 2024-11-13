@@ -107,7 +107,7 @@ public class FileManager implements Serializable {
         fos.close();
     }
 
-    public Funcionario carregarPessoa() throws IOException, ClassNotFoundException {
+    public Funcionario carregarFuncionario() throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream("./ERPJava/database/Funcionario.txt");
         ObjectInputStream is = new ObjectInputStream(fis);
         Funcionario f = (Funcionario) is.readObject();

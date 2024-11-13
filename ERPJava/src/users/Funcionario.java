@@ -42,6 +42,7 @@ public abstract class Funcionario implements Serializable {
     public abstract double comissao();
 
 
+
 }
 
 

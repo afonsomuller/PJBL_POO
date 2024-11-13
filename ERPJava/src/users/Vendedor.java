@@ -1,6 +1,5 @@
 package users;
 
-import java.io.IOException;
 import java.io.Serializable;
 
 public class Vendedor extends Funcionario implements Serializable {
@@ -20,7 +19,6 @@ public class Vendedor extends Funcionario implements Serializable {
             return getSalario() + (this.valorVendido * 0.005);
         }
     }
-
 
     public double getValorVendido() {
         return valorVendido;

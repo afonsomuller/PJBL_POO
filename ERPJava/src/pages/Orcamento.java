@@ -1,12 +1,14 @@
 package pages;
 
+import users.Funcionario;
+import users.Vendedor;
 import utilities.FileManager;
 import utilities.ValorNegativoException;
 import utilities.Vendas;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Orcamento extends JFrame {
     private JTextField valorTextField;
@@ -14,8 +16,7 @@ public class Orcamento extends JFrame {
     private JButton confirmarOrçamentoButton;
     private JButton cancelarButton;
     private JPanel Orcamento;
-    private static final int TIMER_DELAY = 1000;
-    private Timer timer;
+
 
     public Orcamento() {
         setContentPane(Orcamento);
@@ -24,8 +25,14 @@ public class Orcamento extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         FileManager fm = new FileManager("./ERPJava/database/Vendas.txt");
-
-
+        FileManager fm1 = new FileManager("./ERPJava/database/Funcionario.txt");
+        try {
+            Funcionario f = fm1.carregarFuncionario();
+            Vendedor v = (Vendedor) f;
+            v.acumularValorVendido();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         cancelarButton.addActionListener(new ActionListener() {
             @Override
