@@ -1,10 +1,12 @@
 package users;
 
-public class Tecnico extends Funcionario {
-    private double valorVendido;
-    public Tecnico(String nomeDoFuncionario, double salario, double valorVendido, int nivelDePermissao){
+import java.io.IOException;
+import java.io.Serializable;
+
+public class Tecnico extends Funcionario implements Serializable {
+    private double valorVendido = 0;
+    public Tecnico(String nomeDoFuncionario, double salario, int nivelDePermissao){
         super(nomeDoFuncionario, salario, nivelDePermissao);
-        this.valorVendido = valorVendido;
     }
 
     public double getValorVendido(){
@@ -23,4 +25,5 @@ public class Tecnico extends Funcionario {
     public double comissao() {
         return 0;
     }
+
 }

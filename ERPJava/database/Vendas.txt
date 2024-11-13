@@ -1,3 +1,2 @@
-id,valor,descricao
-1,2000,venda de dois motores
-2,3000,venda de 3 motores
+1,2000.0,valor
+2,3000.0,vlore

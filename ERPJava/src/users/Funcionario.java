@@ -2,9 +2,9 @@ package users;
 
 import com.sun.source.tree.LabeledStatementTree;
 
-import java.io.Serializable;
+import java.io.*;
 
-public abstract class Funcionario{
+public abstract class Funcionario implements Serializable {
     private String nomeDoFuncionario;
     private double salario;
     private int nivelDePermissao;
@@ -15,6 +15,10 @@ public abstract class Funcionario{
         this.nivelDePermissao = nivelDePermissao;
     }
 
+    @Override
+    public String toString(){
+        return "Nome do funcionário: " + nomeDoFuncionario + " Salário: " + salario;
+    }
     public String getNomeDoFuncionario() {
         return nomeDoFuncionario;
     }
@@ -39,4 +43,5 @@ public abstract class Funcionario{
 
 
 }
+
 

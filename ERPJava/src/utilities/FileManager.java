@@ -1,14 +1,13 @@
 package utilities;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import users.Funcionario;
+
+import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
 
-public class FileManager {
+public class FileManager implements Serializable {
     private final String caminhoArquivo;
 
     public FileManager(String caminhoArquivo) {
@@ -35,6 +34,26 @@ public class FileManager {
         }
     }
 
+    public int getIDVendaArquivo(){
+        int IDVendaTemp = 0;
+        try {
+            FileReader arquivo = new FileReader(caminhoArquivo);
+            BufferedReader br = new BufferedReader(arquivo);
+            while (br.ready()) {
+                String dado = br.readLine();
+                String[] dados = dado.split(",");
+                List<String> dadoTratado = Arrays.asList(dados);
+                IDVendaTemp = Integer.parseInt(dadoTratado.getFirst());
+            }
+            arquivo.close();
+            return IDVendaTemp;
+        }
+        catch(Exception e){
+            System.out.println("Erro ao ler o arquivo");
+        }
+        return IDVendaTemp;
+    }
+
     public List<String> lerArquivoEmpresa(){
         List<String> dadoTratado = null;
         try {
@@ -48,7 +67,10 @@ public class FileManager {
             arquivo.close();
             return dadoTratado;
         }
-        catch(Exception e){
+        catch(FileNotFoundException e){
+            System.out.println("Arquivo não encontrado");
+        }
+        catch (IOException e){
             System.out.println("Erro ao ler o arquivo");
         }
         return dadoTratado;
@@ -69,7 +91,6 @@ public class FileManager {
         File arquivo = new File(caminhoArquivo);
         try{
             FileWriter fileWriter = new FileWriter(arquivo, true);
-            //StringBuilder sb = new StringBuilder();
             fileWriter.write(ID + "," + valor + "," + descricao + "\n");
             fileWriter.close();
         }
@@ -77,6 +98,24 @@ public class FileManager {
             System.out.println("Erro ao escrever o arquivo");
         }
     }
+
+    public void salvarFuncionario(Funcionario f) throws IOException {
+        FileOutputStream fos = new FileOutputStream("./ERPJava/database/Funcionario.txt");
+        ObjectOutputStream os = new ObjectOutputStream(fos);
+        os.writeObject(f);
+        os.close();
+        fos.close();
+    }
+
+    public Funcionario carregarPessoa() throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream("./ERPJava/database/Funcionario.txt");
+        ObjectInputStream is = new ObjectInputStream(fis);
+        Funcionario f = (Funcionario) is.readObject();
+        is.close();
+        fis.close();
+        return f;
+    }
+
 
 
 }

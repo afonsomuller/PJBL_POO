@@ -27,13 +27,5 @@ public class Empresa {
         return CNPJ;
     }
 
-
-
-    public void addFuncionario(Funcionario f){
-        funcionarios.add(f);
-    }
-    public ArrayList<Funcionario> getFuncionarios() {
-        return funcionarios;
-    }
 }
 

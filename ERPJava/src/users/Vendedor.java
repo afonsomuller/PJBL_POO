@@ -1,12 +1,14 @@
 package users;
 
-public class Vendedor extends Funcionario {
-    private double valorVendido;
+import java.io.IOException;
+import java.io.Serializable;
+
+public class Vendedor extends Funcionario implements Serializable {
+    private double valorVendido = 0;
 
 
-    public Vendedor(String nomeDoFuncionario, double salario, double valorVendido, int nivelDePermissao){
+    public Vendedor(String nomeDoFuncionario, double salario, int nivelDePermissao){
         super(nomeDoFuncionario, salario, nivelDePermissao);
-        this.valorVendido = valorVendido;
 
     }
     @Override
