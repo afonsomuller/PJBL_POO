@@ -58,7 +58,7 @@ public class CriacaoEmpresa extends JFrame {
                                 fm.escreverArquivoEmpresa(nomeEmpresa, CNPJEmpresa);
                                 FileManager fm1 = new FileManager("./ERPJava/database/Funcionario.txt");
                                 try {
-                                    Funcionario v = fm1.carregarPessoa();
+                                    Funcionario v = fm1.carregarFuncionario();
                                     MainWindow mainWindow = new MainWindow();
                                 } catch (IOException | ClassNotFoundException ex) {
                                     CriarFuncionario cf = new CriarFuncionario();

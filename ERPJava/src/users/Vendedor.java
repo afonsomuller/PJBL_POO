@@ -2,7 +2,7 @@ package users;
 
 import java.io.Serializable;
 
-public class Vendedor extends Funcionario implements Serializable {
+public class Vendedor extends Funcionario {
     private double valorVendido = 0;
 
 
@@ -18,6 +18,11 @@ public class Vendedor extends Funcionario implements Serializable {
         else {
             return getSalario() + (this.valorVendido * 0.005);
         }
+    }
+
+    @Override
+    public String getNomeDoFuncionario() {
+        return super.getNomeDoFuncionario();
     }
 
     public double getValorVendido() {

@@ -3,7 +3,7 @@ package users;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class Tecnico extends Funcionario implements Serializable {
+public class Tecnico extends Funcionario {
     private double valorVendido = 0;
     public Tecnico(String nomeDoFuncionario, double salario, int nivelDePermissao){
         super(nomeDoFuncionario, salario, nivelDePermissao);

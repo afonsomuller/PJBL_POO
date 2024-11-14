@@ -26,13 +26,7 @@ public class Orcamento extends JFrame {
         setVisible(true);
         FileManager fm = new FileManager("./ERPJava/database/Vendas.txt");
         FileManager fm1 = new FileManager("./ERPJava/database/Funcionario.txt");
-        try {
-            Funcionario f = fm1.carregarFuncionario();
-            Vendedor v = (Vendedor) f;
-            v.acumularValorVendido();
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
 
         cancelarButton.addActionListener(new ActionListener() {
             @Override
@@ -49,18 +43,26 @@ public class Orcamento extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+
                     double valor = Double.parseDouble(valorTextField.getText());
                     String descricao = descricaoTextField.getText();
                     if(valor < 0) throw new ValorNegativoException("Você digitou um valor negativo");
                     int resposta = JOptionPane.showConfirmDialog(Orcamento.this,
                             "Deseja confimar o orçamento de: " + "\nValor: " + valor + "\nDescrição: " + descricao, "Confirmação", JOptionPane.OK_CANCEL_OPTION);
                     if (resposta == 0) {
-                        Vendas.setIDVenda(fm.getIDVendaArquivo());
-                        Vendas vendas = new Vendas(valor, descricao);
-                        fm.escreverArquivoVendas(vendas.getIDVenda(), vendas.getValorVenda(), vendas.getDescricao());
-                        System.out.println(fm.getIDVendaArquivo());
-                        Orcamento orcamento = new Orcamento();
-                        dispose();
+                        try {
+                            Funcionario f = fm1.carregarFuncionario();
+                            Vendedor v = (Vendedor) f;
+                            v.acumularValorVendido(valor);
+                            Vendas.setIDVenda(fm.getIDVendaArquivo());
+                            Vendas vendas = new Vendas(valor, descricao, v);
+                            fm.escreverArquivoVendas(vendas.getIDVenda(), vendas.getValorVenda(), vendas.getDescricao(), v.getNomeDoFuncionario());
+                            Orcamento orcamento = new Orcamento();
+                            dispose();
+                        } catch (IOException | ClassNotFoundException ex) {
+                            JOptionPane.showMessageDialog(Orcamento.this, "Vendedor não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                        }
+
                     }
                 } catch (ValorNegativoException e1) {
                     JOptionPane.showMessageDialog(Orcamento.this, e1.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);

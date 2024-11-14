@@ -87,11 +87,11 @@ public class FileManager implements Serializable {
             System.out.println("Erro ao escrever o arquivo");
         }
     }
-    public void escreverArquivoVendas(int ID, double valor, String descricao){
+    public void escreverArquivoVendas(int ID, double valor, String descricao, String nomeDoVendedor){
         File arquivo = new File(caminhoArquivo);
         try{
             FileWriter fileWriter = new FileWriter(arquivo, true);
-            fileWriter.write(ID + "," + valor + "," + descricao + "\n");
+            fileWriter.write(ID + "," + valor + "," + descricao + "," + nomeDoVendedor + "\n");
             fileWriter.close();
         }
         catch(Exception e){

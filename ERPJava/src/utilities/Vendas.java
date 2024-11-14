@@ -1,16 +1,20 @@
 package utilities;
 
+import users.Vendedor;
+
 import java.util.ArrayList;
 
 public class Vendas {
     private static int IDVenda;
     private double valorVenda;
     private String descricao;
+    private Vendedor vendedor;
 
-    public Vendas(double valorVenda, String descricao) {
+    public Vendas(double valorVenda, String descricao, Vendedor vendedor) {
         IDVenda++;
         this.valorVenda = valorVenda;
         this.descricao = descricao;
+        this.vendedor = vendedor;
     }
 
     private ArrayList<Vendas> vendas = new ArrayList<>();

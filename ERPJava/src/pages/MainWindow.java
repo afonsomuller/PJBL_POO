@@ -23,5 +23,12 @@ public class MainWindow extends JFrame {
                 dispose();
             }
         });
+        relatórioGerencialButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RelatorioGerencial re = new RelatorioGerencial();
+                dispose();
+            }
+        });
     }
 }

@@ -10,9 +10,10 @@ public class Empresa {
     public Empresa(String nomeDaEmpresa, String CNPJ){
         this.nomeDaEmpresa = nomeDaEmpresa;
         this.CNPJ = CNPJ;
+        addEmpresa(this);
     }
     private ArrayList<Funcionario> funcionarios = new ArrayList<>();
-    private ArrayList<Empresa>empresas  = new ArrayList<>();
+    private ArrayList<Empresa> empresas  = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -27,5 +28,12 @@ public class Empresa {
         return CNPJ;
     }
 
+    public void addEmpresa(Empresa empresa){
+        empresas.add(empresa);
+    }
+
+    public Empresa getEmpresa() {
+        return empresas.getFirst();
+    }
 }
 
