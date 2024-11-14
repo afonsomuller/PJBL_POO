@@ -7,6 +7,7 @@ import utilities.FileManager;
 import java.io.IOException;
 import java.util.List;
 
+// CNPJ para uso: 71725337000104
 
 public class Main {
     public static void main(String[] args) {
